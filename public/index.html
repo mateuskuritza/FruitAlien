@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
     <title>BananaGame</title>
 </head>
 <body>
-    <h1 id="teste"> Clique aqui </h1>
+    <div id="app">
+        <div id="infos">
+            <div id="lifes">
+                <img alt="life heart" src="images/heart.png"/>
+                <img alt="life heart" src="images/heart.png"/>
+                <img alt="life heart" src="images/heart.png"/>
+                <img alt="life heart" src="images/heart-empty.png"/>
+            </div>
+            <p id="score">Score: 154</p>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div id="walk-line"></div>
+    </div>
     <script src="bundle.js"></script>
 </body>
 </html>
