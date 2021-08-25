@@ -14,9 +14,19 @@
 /*!**********************!*\
   !*** ./src/Lifes.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\r\nexports.__esModule = true;\r\nvar Lifes = /** @class */ (function () {\r\n    function Lifes(container) {\r\n        this.lifesQuantity = 4;\r\n        this.heart = '<img alt=\"life heart\" src=\"images/heart.png\"/> ';\r\n        this.emptyHeart = '<img alt=\"empty life heart\" src=\"images/heart-empty.png\"/> ';\r\n        this.container = container;\r\n    }\r\n    Lifes.prototype.reset = function () {\r\n        this.lifesQuantity = 4;\r\n        this.draw();\r\n    };\r\n    Lifes.prototype.decreaseOne = function () {\r\n        this.lifesQuantity--;\r\n        this.draw();\r\n    };\r\n    Lifes.prototype.draw = function () {\r\n        var _this = this;\r\n        var drawHearts = Array(4).fill(0).map(function (e, i) {\r\n            if (i + 1 <= _this.lifesQuantity)\r\n                return _this.heart;\r\n            return _this.emptyHeart;\r\n        }).join(' ');\r\n        this.container.innerHTML = drawHearts;\r\n    };\r\n    return Lifes;\r\n}());\r\nexports.default = Lifes;\r\n\n\n//# sourceURL=webpack://banana-game/./src/Lifes.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Lifes)\n/* harmony export */ });\nclass Lifes {\r\n    constructor(container) {\r\n        this._lifesQuantity = 4;\r\n        this._heart = '<img alt=\"life heart\" src=\"images/heart.png\"/> ';\r\n        this._emptyHeart = '<img alt=\"empty life heart\" src=\"images/heart-empty.png\"/> ';\r\n        this._container = container;\r\n    }\r\n    reset() {\r\n        this._lifesQuantity = 4;\r\n        this.draw();\r\n    }\r\n    decreaseOne() {\r\n        this._lifesQuantity--;\r\n        this.draw();\r\n    }\r\n    draw() {\r\n        const drawHearts = Array(4).fill(0).map((e, i) => {\r\n            if (i + 1 <= this._lifesQuantity)\r\n                return this._heart;\r\n            return this._emptyHeart;\r\n        }).join(' ');\r\n        this._container.innerHTML = drawHearts;\r\n    }\r\n    get lifesQuantity() {\r\n        return this._lifesQuantity;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Lifes.ts?");
+
+/***/ }),
+
+/***/ "./src/Score.ts":
+/*!**********************!*\
+  !*** ./src/Score.ts ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Score)\n/* harmony export */ });\nclass Score {\r\n    constructor(container) {\r\n        this._score = 0;\r\n        this._container = container;\r\n    }\r\n    reset() {\r\n        this._score = 0;\r\n    }\r\n    increaseScore(value) {\r\n        this._score += value;\r\n    }\r\n    decreaseScore(value) {\r\n        this._score -= value;\r\n    }\r\n    draw() {\r\n        this._container.innerHTML = 'Score: ' + this._score;\r\n    }\r\n    get score() {\r\n        return this._score;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Score.ts?");
 
 /***/ }),
 
@@ -24,9 +34,9 @@ eval("\r\nexports.__esModule = true;\r\nvar Lifes = /** @class */ (function () {
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\r\nexports.__esModule = true;\r\nvar Lifes_1 = __webpack_require__(/*! ./Lifes */ \"./src/Lifes.ts\");\r\nvar scoreContainer = document.querySelector(\"#score\");\r\nvar lifesContainer = document.querySelector(\"#lifes\");\r\nvar canvas = document.querySelector(\"#canvas\");\r\nvar lifes = new Lifes_1[\"default\"](lifesContainer);\r\nscoreContainer.addEventListener(\"click\", function () { return lifes.decreaseOne(); });\r\ncanvas.addEventListener(\"click\", function () { return lifes.reset(); });\r\nlifes.draw();\r\n\n\n//# sourceURL=webpack://banana-game/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Lifes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Lifes */ \"./src/Lifes.ts\");\n/* harmony import */ var _Score__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Score */ \"./src/Score.ts\");\n\r\n\r\nconst scoreContainer = document.querySelector(\"#score\");\r\nconst lifesContainer = document.querySelector(\"#lifes\");\r\nconst canvas = document.querySelector(\"#canvas\");\r\nconst lifes = new _Lifes__WEBPACK_IMPORTED_MODULE_0__.default(lifesContainer);\r\nconst score = new _Score__WEBPACK_IMPORTED_MODULE_1__.default(scoreContainer);\r\n\n\n//# sourceURL=webpack://banana-game/./src/index.ts?");
 
 /***/ })
 
@@ -55,6 +65,35 @@ eval("\r\nexports.__esModule = true;\r\nvar Lifes_1 = __webpack_require__(/*! ./
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	

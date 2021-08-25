@@ -1,6 +1,6 @@
 export default class Lifes {
 
-    _lifesQuantity: number = 4;
+    private _lifesQuantity: number = 4;
     private _heart: string = '<img alt="life heart" src="images/heart.png"/> ';
     private _emptyHeart: string = '<img alt="empty life heart" src="images/heart-empty.png"/> '
     private _container: Element;
@@ -27,7 +27,7 @@ export default class Lifes {
         this._container.innerHTML = drawHearts;
     }
 
-    get lifesQuantity() {
+    get lifesQuantity(): number {
         return this._lifesQuantity;
     }
 }
