@@ -1,3 +1,9 @@
-const teste = document.querySelector("#teste");
+import Lifes from "./Lifes";
 
-teste.addEventListener("click", () => alert("Olá mundo!"));
+const scoreContainer = document.querySelector("#score");
+const lifesContainer = document.querySelector("#lifes");
+const canvas = document.querySelector("#canvas");
+
+const lifes = new Lifes(lifesContainer);
+
+lifes.draw();
