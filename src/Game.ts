@@ -1,4 +1,5 @@
 import AutonomousObject from "./AutonomousObject";
+import Bomb from "./Bomb";
 import AllFruits from "./Fruits/AllFruits";
 import Lifes from "./Lifes";
 import Player from "./Player";
@@ -8,7 +9,8 @@ export default class Game {
 
     player: Player;
     gameIntervalId: number;
-    spawnIntervalId: number;
+    spawnFruitIntervalId: number;
+    spawnBombIntervalId: number;
     canvas: HTMLCanvasElement;
     objects: AutonomousObject[] = [];
     context: CanvasRenderingContext2D;
@@ -33,7 +35,8 @@ export default class Game {
     start() {
         if (!this.runningGame) {
             this.gameIntervalId = window.setInterval(() => this.loop(), 1000 / 60);
-            this.spawnIntervalId = window.setInterval(() => this.spawnRandomFruit(), 700);
+            this.spawnFruitIntervalId = window.setInterval(() => this.spawnRandomFruit(), 700);
+            this.spawnBombIntervalId = window.setInterval(() => this.spawnBomb(), 3000);
             this.runningGame = true;
         } else {
             this.restart();
@@ -45,7 +48,7 @@ export default class Game {
         this.checkCollisions();
         this.render();
 
-        if (this.lifes.lifesQuantity <= 0) this.end();
+        if (this.lifes.lifesQuantity <= 0 || this.score.score < 0) this.end();
     }
 
     render() {
@@ -77,8 +80,7 @@ export default class Game {
 
     restart() {
         this.loseText.textContent = "";
-        clearInterval(this.gameIntervalId);
-        clearInterval(this.spawnIntervalId);
+        this.clearIntervals();
         this.objects = [];
         this.runningGame = false;
         this.score.reset();
@@ -99,9 +101,18 @@ export default class Game {
         this.objects.push(fruit);
     }
 
+    spawnBomb() {
+        this.objects.push(new Bomb(this.canvas));
+    }
+
     end() {
-        clearInterval(this.gameIntervalId);
-        clearInterval(this.spawnIntervalId);
+        this.clearIntervals();
         this.loseText.textContent = "Você perdeu!";
+    }
+
+    clearIntervals() {
+        clearInterval(this.gameIntervalId);
+        clearInterval(this.spawnFruitIntervalId);
+        clearInterval(this.spawnBombIntervalId);
     }
 }
