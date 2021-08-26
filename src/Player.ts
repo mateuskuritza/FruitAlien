@@ -12,11 +12,9 @@ export default class Player extends Drawables {
     move(key: string) {
         if (key === "ArrowRight" && this.positionX < this.screenWidth - 53) {
             this.positionX += this.speedX;
-            this.draw();
         }
         if (key === "ArrowLeft" && this.positionX > 0) {
             this.positionX -= this.speedX;
-            this.draw();
         }
     }
 

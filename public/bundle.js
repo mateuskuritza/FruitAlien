@@ -10,13 +10,103 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/AutonomousObject.ts":
+/*!*********************************!*\
+  !*** ./src/AutonomousObject.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ AutonomousObject)\n/* harmony export */ });\n/* harmony import */ var _Drawable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Drawable */ \"./src/Drawable.ts\");\n\r\nclass AutonomousObject extends _Drawable__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas, imagePath, sizeX, sizeY) {\r\n        super(canvas, imagePath, Math.random() * (canvas.width), -70, sizeX, sizeY);\r\n        this.speedY = 10;\r\n    }\r\n    move() {\r\n        this.positionY += this.speedY;\r\n    }\r\n    outOfScreen() {\r\n        return this.positionY > this.screenHeight;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/AutonomousObject.ts?");
+
+/***/ }),
+
 /***/ "./src/Drawable.ts":
 /*!*************************!*\
   !*** ./src/Drawable.ts ***!
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Drawable)\n/* harmony export */ });\nclass Drawable {\r\n    constructor(canvas, imagePath, positionX, positionY, sizeX, sizeY) {\r\n        this.context = canvas.getContext('2d');\r\n        this.imagePath = imagePath;\r\n        this.sizeX = sizeX;\r\n        this.sizeY = sizeY;\r\n        this.positionX = positionX;\r\n        this.positionY = positionY;\r\n        this.screenWidth = canvas.width;\r\n        this.screenHeight = canvas.height;\r\n    }\r\n    draw() {\r\n        this.context.clearRect(0, 0, this.screenWidth, this.screenHeight);\r\n        this.context.drawImage(this.imagePath, this.positionX, this.positionY, this.sizeX, this.sizeY);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Drawable.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Drawable)\n/* harmony export */ });\nclass Drawable {\r\n    constructor(canvas, imagePath, positionX, positionY, sizeX, sizeY) {\r\n        this.context = canvas.getContext('2d');\r\n        this.imagePath = imagePath;\r\n        this.sizeX = sizeX;\r\n        this.sizeY = sizeY;\r\n        this.positionX = positionX;\r\n        this.positionY = positionY;\r\n        this.screenWidth = canvas.width;\r\n        this.screenHeight = canvas.height;\r\n    }\r\n    draw() {\r\n        this.context.drawImage(this.imagePath, this.positionX, this.positionY, this.sizeX, this.sizeY);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Drawable.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruit.ts":
+/*!**********************!*\
+  !*** ./src/Fruit.ts ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Fruit)\n/* harmony export */ });\n/* harmony import */ var _AutonomousObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AutonomousObject */ \"./src/AutonomousObject.ts\");\n\r\nclass Fruit extends _AutonomousObject__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas, imagePath, sizeX, sizeY) {\r\n        super(canvas, imagePath, sizeX, sizeY);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruit.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/AllFruits.ts":
+/*!*********************************!*\
+  !*** ./src/Fruits/AllFruits.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _Banana__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Banana */ \"./src/Fruits/Banana.ts\");\n/* harmony import */ var _Orange__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Orange */ \"./src/Fruits/Orange.ts\");\n/* harmony import */ var _RedApple__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RedApple */ \"./src/Fruits/RedApple.ts\");\n/* harmony import */ var _StrawBerry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StrawBerry */ \"./src/Fruits/StrawBerry.ts\");\n/* harmony import */ var _Watermelon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Watermelon */ \"./src/Fruits/Watermelon.ts\");\n\r\n\r\n\r\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({ Banana: _Banana__WEBPACK_IMPORTED_MODULE_0__.default, Orange: _Orange__WEBPACK_IMPORTED_MODULE_1__.default, RedApple: _RedApple__WEBPACK_IMPORTED_MODULE_2__.default, StrawBerry: _StrawBerry__WEBPACK_IMPORTED_MODULE_3__.default, Watermelon: _Watermelon__WEBPACK_IMPORTED_MODULE_4__.default });\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/AllFruits.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/Banana.ts":
+/*!******************************!*\
+  !*** ./src/Fruits/Banana.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Banana)\n/* harmony export */ });\n/* harmony import */ var _Fruit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fruit */ \"./src/Fruit.ts\");\n\r\nconst bananaImg = document.querySelector(\"#banana\");\r\nclass Banana extends _Fruit__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas) {\r\n        super(canvas, bananaImg, 61, 67);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/Banana.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/Orange.ts":
+/*!******************************!*\
+  !*** ./src/Fruits/Orange.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Orange)\n/* harmony export */ });\n/* harmony import */ var _Fruit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fruit */ \"./src/Fruit.ts\");\n\r\nconst orangeImage = document.querySelector(\"#orange\");\r\nclass Orange extends _Fruit__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas) {\r\n        super(canvas, orangeImage, 64, 67);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/Orange.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/RedApple.ts":
+/*!********************************!*\
+  !*** ./src/Fruits/RedApple.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ RedApple)\n/* harmony export */ });\n/* harmony import */ var _Fruit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fruit */ \"./src/Fruit.ts\");\n\r\nconst redAppleImg = document.querySelector(\"#redApple\");\r\nclass RedApple extends _Fruit__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas) {\r\n        super(canvas, redAppleImg, 64, 67);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/RedApple.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/StrawBerry.ts":
+/*!**********************************!*\
+  !*** ./src/Fruits/StrawBerry.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ StrawBerry)\n/* harmony export */ });\n/* harmony import */ var _Fruit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fruit */ \"./src/Fruit.ts\");\n\r\nconst strawberryImg = document.querySelector(\"#strawberry\");\r\nclass StrawBerry extends _Fruit__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas) {\r\n        super(canvas, strawberryImg, 65, 67);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/StrawBerry.ts?");
+
+/***/ }),
+
+/***/ "./src/Fruits/Watermelon.ts":
+/*!**********************************!*\
+  !*** ./src/Fruits/Watermelon.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Watermelon)\n/* harmony export */ });\n/* harmony import */ var _Fruit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fruit */ \"./src/Fruit.ts\");\n\r\nconst watermelonImg = document.querySelector(\"#watermelon\");\r\nclass Watermelon extends _Fruit__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas) {\r\n        super(canvas, watermelonImg, 82, 67);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Fruits/Watermelon.ts?");
+
+/***/ }),
+
+/***/ "./src/Game.ts":
+/*!*********************!*\
+  !*** ./src/Game.ts ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Game)\n/* harmony export */ });\n/* harmony import */ var _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Fruits/AllFruits */ \"./src/Fruits/AllFruits.ts\");\n\r\nclass Game {\r\n    constructor(canvas, player) {\r\n        this.objects = [];\r\n        this.runningGame = false;\r\n        this.canvas = canvas;\r\n        this.player = player;\r\n        this.context = canvas.getContext('2d');\r\n        this.screenHeight = canvas.height;\r\n        this.screenWidth = canvas.width;\r\n    }\r\n    start() {\r\n        if (!this.runningGame) {\r\n            this.gameIntervalId = window.setInterval(() => this.loop(), 1000 / 60);\r\n            this.spawnIntervalId = window.setInterval(() => this.spawnRandomFruit(), 700);\r\n            this.runningGame = true;\r\n        }\r\n    }\r\n    loop() {\r\n        this.updateState();\r\n        this.checkCollisions();\r\n        this.render();\r\n    }\r\n    render() {\r\n        this.context.clearRect(0, 0, this.screenWidth, this.screenHeight);\r\n        this.player.draw();\r\n        this.objects.forEach(object => object.draw());\r\n    }\r\n    checkCollisions() {\r\n        this.objects.forEach(object => this.player.checkCollision(object));\r\n    }\r\n    updateState() {\r\n        this.objects.forEach(object => object.move());\r\n        this.objects.forEach(object => {\r\n            if (object.outOfScreen()) {\r\n                this.objects = this.objects.filter(obj => obj !== object);\r\n            }\r\n        });\r\n    }\r\n    restart() {\r\n        clearInterval(this.gameIntervalId);\r\n        clearInterval(this.spawnIntervalId);\r\n        this.objects = [];\r\n        this.runningGame = false;\r\n        this.start();\r\n    }\r\n    spawnRandomFruit() {\r\n        const random = Math.random() * 100;\r\n        let fruit;\r\n        if (random > 70)\r\n            fruit = new _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__.default.Orange(this.canvas);\r\n        if (random > 40 && random <= 70)\r\n            fruit = new _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__.default.RedApple(this.canvas);\r\n        if (random > 20 && random <= 40)\r\n            fruit = new _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__.default.Watermelon(this.canvas);\r\n        if (random > 5 && random <= 20)\r\n            fruit = new _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__.default.StrawBerry(this.canvas);\r\n        if (random <= 5)\r\n            fruit = new _Fruits_AllFruits__WEBPACK_IMPORTED_MODULE_0__.default.Banana(this.canvas);\r\n        this.objects.push(fruit);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Game.ts?");
 
 /***/ }),
 
@@ -36,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Drawable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Drawable */ \"./src/Drawable.ts\");\n\r\nclass Player extends _Drawable__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas, imagePath) {\r\n        super(canvas, imagePath, canvas.width / 2, canvas.height - 97, 53, 97);\r\n        this.speedX = 5;\r\n    }\r\n    move(key) {\r\n        if (key === \"ArrowRight\" && this.positionX < this.screenWidth - 53) {\r\n            this.positionX += this.speedX;\r\n            this.draw();\r\n        }\r\n        if (key === \"ArrowLeft\" && this.positionX > 0) {\r\n            this.positionX -= this.speedX;\r\n            this.draw();\r\n        }\r\n    }\r\n    stop() {\r\n        clearInterval(this.movingIntervalId);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Player.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _Drawable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Drawable */ \"./src/Drawable.ts\");\n\r\nclass Player extends _Drawable__WEBPACK_IMPORTED_MODULE_0__.default {\r\n    constructor(canvas, imagePath) {\r\n        super(canvas, imagePath, canvas.width / 2, canvas.height - 97, 53, 97);\r\n        this.speedX = 5;\r\n    }\r\n    move(key) {\r\n        if (key === \"ArrowRight\" && this.positionX < this.screenWidth - 53) {\r\n            this.positionX += this.speedX;\r\n        }\r\n        if (key === \"ArrowLeft\" && this.positionX > 0) {\r\n            this.positionX -= this.speedX;\r\n        }\r\n    }\r\n    checkCollision(object) {\r\n        const distance = Math.sqrt(Math.pow((this.positionX - object.positionX), 2) + Math.pow((this.positionY - object.positionY), 2));\r\n        return distance < this.sizeY + object.sizeY;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://banana-game/./src/Player.ts?");
 
 /***/ }),
 
@@ -56,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Lifes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Lifes */ \"./src/Lifes.ts\");\n/* harmony import */ var _Score__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Score */ \"./src/Score.ts\");\n/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Player */ \"./src/Player.ts\");\n\r\n\r\n\r\nconst scoreContainer = document.querySelector(\"#score\");\r\nconst lifesContainer = document.querySelector(\"#lifes\");\r\nconst canvas = document.querySelector(\"#canvas\");\r\nconst app = document.querySelector(\"#app\");\r\nconst screenWidth = app.clientWidth;\r\nconst screenHeight = app.clientHeight;\r\ncanvas.width = screenWidth;\r\ncanvas.height = screenHeight;\r\nconst alien = document.querySelector(\"#alien\");\r\nconst banana = document.querySelector(\"#banana\");\r\nconst orange = document.querySelector(\"#orange\");\r\nconst redApple = document.querySelector(\"#red-apple\");\r\nconst strawberry = document.querySelector(\"#strawberry\");\r\nconst watermelon = document.querySelector(\"#watermelon\");\r\nconst lifes = new _Lifes__WEBPACK_IMPORTED_MODULE_0__.default(lifesContainer);\r\nconst score = new _Score__WEBPACK_IMPORTED_MODULE_1__.default(scoreContainer);\r\nconst player = new _Player__WEBPACK_IMPORTED_MODULE_2__.default(canvas, alien);\r\nwindow.setTimeout(() => player.draw(), 100);\r\nwindow.addEventListener('keydown', (e) => player.move(e.key));\r\nwindow.addEventListener('keyup', () => player.stop());\r\n\n\n//# sourceURL=webpack://banana-game/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Lifes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Lifes */ \"./src/Lifes.ts\");\n/* harmony import */ var _Score__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Score */ \"./src/Score.ts\");\n/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Player */ \"./src/Player.ts\");\n/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Game */ \"./src/Game.ts\");\n\r\n\r\n\r\n\r\nconst scoreContainer = document.querySelector(\"#score\");\r\nconst lifesContainer = document.querySelector(\"#lifes\");\r\nconst canvas = document.querySelector(\"#canvas\");\r\nconst app = document.querySelector(\"#app\");\r\nconst startButton = document.querySelector(\"#startButton\");\r\nconst restartButton = document.querySelector(\"#restartButton\");\r\nconst screenWidth = app.clientWidth;\r\nconst screenHeight = app.clientHeight;\r\ncanvas.width = screenWidth;\r\ncanvas.height = screenHeight;\r\nconst alien = document.querySelector(\"#alien\");\r\nconst lifes = new _Lifes__WEBPACK_IMPORTED_MODULE_0__.default(lifesContainer);\r\nconst score = new _Score__WEBPACK_IMPORTED_MODULE_1__.default(scoreContainer);\r\nconst player = new _Player__WEBPACK_IMPORTED_MODULE_2__.default(canvas, alien);\r\nconst game = new _Game__WEBPACK_IMPORTED_MODULE_3__.default(canvas, player);\r\nwindow.setTimeout(() => player.draw(), 100);\r\nwindow.addEventListener('keydown', (e) => player.move(e.key));\r\nstartButton.addEventListener(\"click\", () => game.start());\r\nrestartButton.addEventListener(\"click\", () => game.restart());\r\n\n\n//# sourceURL=webpack://banana-game/./src/index.ts?");
 
 /***/ })
 

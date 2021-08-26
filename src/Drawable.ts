@@ -21,7 +21,6 @@ export default abstract class Drawable {
     }
 
     draw() {
-        this.context.clearRect(0, 0, this.screenWidth, this.screenHeight);
         this.context.drawImage(this.imagePath, this.positionX, this.positionY, this.sizeX, this.sizeY);
     }
 }
