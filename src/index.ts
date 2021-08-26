@@ -24,11 +24,7 @@ const lifes = new Lifes(lifesContainer);
 const score = new Score(scoreContainer);
 const player = new Player(canvas, alien)
 
-scoreContainer.addEventListener('click', () => {
-    lifes.decreaseOne();
-    lifes.draw();
-});
+window.setTimeout(() => player.draw(), 100);
 window.addEventListener('keydown', (e) => player.move(e.key));
-window.addEventListener('keyup', () => player.stop());
 
 
