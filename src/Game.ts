@@ -1,6 +1,8 @@
 import AutonomousObject from "./AutonomousObject";
 import AllFruits from "./Fruits/AllFruits";
+import Lifes from "./Lifes";
 import Player from "./Player";
+import Score from "./Score";
 
 export default class Game {
 
@@ -13,13 +15,17 @@ export default class Game {
     screenWidth: number;
     screenHeight: number;
     runningGame: boolean = false;
+    lifes: Lifes;
+    score: Score;
 
-    constructor(canvas: HTMLCanvasElement, player: Player) {
+    constructor(canvas: HTMLCanvasElement, player: Player, lifes: Lifes, score: Score) {
         this.canvas = canvas;
         this.player = player;
         this.context = canvas.getContext('2d');
         this.screenHeight = canvas.height;
         this.screenWidth = canvas.width;
+        this.lifes = lifes;
+        this.score = score;
     }
 
     start() {
@@ -40,17 +46,24 @@ export default class Game {
         this.context.clearRect(0, 0, this.screenWidth, this.screenHeight);
         this.player.draw();
         this.objects.forEach(object => object.draw());
+        this.score.draw();
+        this.lifes.draw();
     }
 
     checkCollisions() {
-        this.objects.forEach(object => this.player.checkCollision(object));
+        this.objects.forEach(object => {
+            if (this.player.checkCollision(object)) {
+                this.score.changeScoreTo(object.attPoints(this.score.score));
+                this.objects = this.objects.filter(obj => obj !== object);
+            }
+        });
     }
 
     updateState() {
         this.objects.forEach(object => object.move());
         this.objects.forEach(object => {
             if (object.outOfScreen()) {
-                this.objects = this.objects.filter(obj => obj !== object);
+                this.lifes.decreaseOne();
             }
         });
     }
@@ -60,6 +73,8 @@ export default class Game {
         clearInterval(this.spawnIntervalId);
         this.objects = [];
         this.runningGame = false;
+        this.score.reset();
+        this.lifes.reset();
         this.start();
     }
 

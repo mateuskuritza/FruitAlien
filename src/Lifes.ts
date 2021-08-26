@@ -11,12 +11,10 @@ export default class Lifes {
 
     reset() {
         this._lifesQuantity = 4;
-        this.draw();
     }
 
     decreaseOne() {
         this._lifesQuantity--;
-        this.draw();
     }
 
     draw() {

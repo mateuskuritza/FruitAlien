@@ -6,6 +6,7 @@ export default class Watermelon extends Fruit {
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas, watermelonImg, 82, 67);
+        this.points = 20;
     }
 
 }

@@ -11,12 +11,9 @@ export default class Score {
         this._score = 0;
     }
 
-    increaseScore(value: number) {
-        this._score += value;
-    }
-
-    decreaseScore(value: number) {
-        this._score -= value;
+    changeScoreTo(value: number) {
+        this._score = value;
+        this.draw();
     }
 
     draw() {

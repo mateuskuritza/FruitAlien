@@ -8,4 +8,8 @@ export default class Banana extends Fruit {
         super(canvas, bananaImg, 61, 67);
     }
 
+    attPoints(points: number) {
+        return points * 2;
+    }
+
 }

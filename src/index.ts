@@ -21,7 +21,7 @@ const alien = document.querySelector("#alien") as HTMLImageElement;
 const lifes = new Lifes(lifesContainer);
 const score = new Score(scoreContainer);
 const player = new Player(canvas, alien);
-const game = new Game(canvas, player);
+const game = new Game(canvas, player, lifes, score);
 
 window.setTimeout(() => player.draw(), 100);
 window.addEventListener('keydown', (e) => player.move(e.key));

@@ -6,6 +6,7 @@ export default class StrawBerry extends Fruit {
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas, strawberryImg, 65, 67);
+        this.points = 30;
     }
 
 }

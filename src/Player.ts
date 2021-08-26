@@ -3,7 +3,7 @@ import Drawables from "./Drawable";
 
 export default class Player extends Drawables {
 
-    speedX: number = 5;
+    speedX: number = 8;
 
     constructor(canvas: HTMLCanvasElement, imagePath: HTMLImageElement) {
         super(canvas, imagePath, canvas.width / 2, canvas.height - 97, 53, 97);
@@ -20,6 +20,6 @@ export default class Player extends Drawables {
 
     checkCollision(object: AutonomousObject) {
         const distance = Math.sqrt((this.positionX - object.positionX) ** 2 + (this.positionY - object.positionY) ** 2);
-        return distance < this.sizeY + object.sizeY;
+        return distance < this.sizeY / 2 + object.sizeY / 2;
     }
 }

@@ -6,6 +6,7 @@ export default class Orange extends Fruit {
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas, orangeImage, 64, 67);
+        this.points = 5;
     }
 
 }
