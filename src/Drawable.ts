@@ -1,4 +1,4 @@
-export default abstract class Drawables {
+export default abstract class Drawable {
 
     context: CanvasRenderingContext2D;
     imagePath: HTMLImageElement;
