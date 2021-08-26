@@ -2,7 +2,7 @@ import Drawable from "./Drawable";
 
 export default abstract class AutonomousObject extends Drawable {
 
-    speedY: number = 10;
+    speedY: number = 6;
     points: number;
 
     constructor(canvas: HTMLCanvasElement, imagePath: HTMLImageElement, sizeX: number, sizeY: number) {

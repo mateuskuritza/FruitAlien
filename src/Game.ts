@@ -17,8 +17,9 @@ export default class Game {
     runningGame: boolean = false;
     lifes: Lifes;
     score: Score;
+    loseText: Element;
 
-    constructor(canvas: HTMLCanvasElement, player: Player, lifes: Lifes, score: Score) {
+    constructor(canvas: HTMLCanvasElement, player: Player, lifes: Lifes, score: Score, loseText: Element) {
         this.canvas = canvas;
         this.player = player;
         this.context = canvas.getContext('2d');
@@ -26,6 +27,7 @@ export default class Game {
         this.screenWidth = canvas.width;
         this.lifes = lifes;
         this.score = score;
+        this.loseText = loseText;
     }
 
     start() {
@@ -33,6 +35,8 @@ export default class Game {
             this.gameIntervalId = window.setInterval(() => this.loop(), 1000 / 60);
             this.spawnIntervalId = window.setInterval(() => this.spawnRandomFruit(), 700);
             this.runningGame = true;
+        } else {
+            this.restart();
         }
     }
 
@@ -40,6 +44,8 @@ export default class Game {
         this.updateState();
         this.checkCollisions();
         this.render();
+
+        if (this.lifes.lifesQuantity <= 0) this.end();
     }
 
     render() {
@@ -64,11 +70,13 @@ export default class Game {
         this.objects.forEach(object => {
             if (object.outOfScreen()) {
                 this.lifes.decreaseOne();
+                this.objects = this.objects.filter(obj => obj !== object);
             }
         });
     }
 
     restart() {
+        this.loseText.textContent = "";
         clearInterval(this.gameIntervalId);
         clearInterval(this.spawnIntervalId);
         this.objects = [];
@@ -89,5 +97,11 @@ export default class Game {
         if (random <= 5) fruit = new AllFruits.Banana(this.canvas);
 
         this.objects.push(fruit);
+    }
+
+    end() {
+        clearInterval(this.gameIntervalId);
+        clearInterval(this.spawnIntervalId);
+        this.loseText.textContent = "Você perdeu!";
     }
 }
