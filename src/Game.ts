@@ -72,7 +72,7 @@ export default class Game {
         this.objects.forEach(object => object.move());
         this.objects.forEach(object => {
             if (object.outOfScreen()) {
-                this.lifes.decreaseOne();
+                if (object.points > 0) this.lifes.decreaseOne();
                 this.objects = this.objects.filter(obj => obj !== object);
             }
         });
