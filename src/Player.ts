@@ -3,7 +3,7 @@ import Drawables from "./Drawable";
 
 export default class Player extends Drawables {
 
-    speedX: number = 8;
+    speedX: number = 10;
 
     constructor(canvas: HTMLCanvasElement, imagePath: HTMLImageElement) {
         super(canvas, imagePath, canvas.width / 2, canvas.height - 97, 53, 97);

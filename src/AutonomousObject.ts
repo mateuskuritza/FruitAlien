@@ -6,7 +6,7 @@ export default abstract class AutonomousObject extends Drawable {
     points: number;
 
     constructor(canvas: HTMLCanvasElement, imagePath: HTMLImageElement, sizeX: number, sizeY: number) {
-        super(canvas, imagePath, Math.random() * (canvas.width), -70, sizeX, sizeY);
+        super(canvas, imagePath, Math.random() * (canvas.width - 25), -70, sizeX, sizeY);
     }
 
     move() {
