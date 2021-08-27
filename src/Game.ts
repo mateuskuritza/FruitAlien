@@ -35,7 +35,7 @@ export default class Game {
     start() {
         if (!this.runningGame) {
             this.gameIntervalId = window.setInterval(() => this.loop(), 1000 / 60);
-            this.spawnFruitIntervalId = window.setInterval(() => this.spawnRandomFruit(), 700);
+            this.spawnFruitIntervalId = window.setInterval(() => this.spawnRandomFruit(), 800);
             this.spawnBombIntervalId = window.setInterval(() => this.spawnBomb(), 3000);
             this.runningGame = true;
         } else {
