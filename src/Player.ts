@@ -9,13 +9,22 @@ export default class Player extends Drawables {
         super(canvas, imagePath, canvas.width / 2, canvas.height - 97, 53, 97);
     }
 
-    move(key: string) {
+    move(e: any) {
+        if (e.key) this.arrowMove(e.key);
+        if (e.touches) this.touchMove(e.touches[0].clientX);
+    }
+
+    arrowMove(key: string) {
         if (key === "ArrowRight" && this.positionX < this.screenWidth - 53) {
             this.positionX += this.speedX;
         }
         if (key === "ArrowLeft" && this.positionX > 0) {
             this.positionX -= this.speedX;
         }
+    }
+
+    touchMove(position: number) {
+        this.positionX = position;
     }
 
     checkCollision(object: AutonomousObject) {

@@ -23,6 +23,7 @@ const player = new Player(canvas, alien);
 const game = new Game(canvas, player, lifes, score, loseText);
 
 window.setTimeout(() => player.draw(), 100);
-window.addEventListener('keydown', (e) => player.move(e.key));
+window.addEventListener('keydown', (e) => player.move(e));
+canvas.addEventListener('touchmove', (e) => player.move(e));
 
 startButton.addEventListener("click", () => game.start());
