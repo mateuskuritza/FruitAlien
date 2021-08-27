@@ -1,6 +1,6 @@
 # FruitAlien
 
-Acesse o projeto clicando <a href="https://mateuskuritza.github.io/FruitAlien/">aqui</a>!
+Acesse o projeto clicando <a href="https://mateuskuritza.github.io/FruitAlien/public/index.html">aqui</a>!
 
 <img src="/public/FruitAlien.gif" align="center" />
 
